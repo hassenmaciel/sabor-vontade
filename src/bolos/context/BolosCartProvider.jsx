@@ -1,8 +1,24 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { BolosCartContext } from './BolosCartContext'
 
+const CHAVE = 'sabor-vontade:bolos:carrinho'
+
+function carregar() {
+  try {
+    const bruto = window.localStorage.getItem(CHAVE)
+    return bruto ? JSON.parse(bruto) : []
+  } catch { return [] }
+}
+
+function salvar(itens) {
+  try { window.localStorage.setItem(CHAVE, JSON.stringify(itens)) }
+  catch { /* modo privado */ }
+}
+
 export function BolosCartProvider({ children }) {
-  const [itens, setItens] = useState([])
+  const [itens, setItens] = useState(() => carregar())
+
+  useEffect(() => { salvar(itens) }, [itens])
 
   const adicionarItem = (bolo, obs = '') => {
     setItens((atual) => {
@@ -29,7 +45,10 @@ export function BolosCartProvider({ children }) {
     )
   }
 
-  const limparCarrinho = () => setItens([])
+  const limparCarrinho = () => {
+    setItens([])
+    try { window.localStorage.removeItem(CHAVE) } catch { /* */ }
+  }
 
   const totalItens = useMemo(() => itens.reduce((s, i) => s + i.quantidade, 0), [itens])
   const totalValor = useMemo(
