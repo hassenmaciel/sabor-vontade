@@ -29,15 +29,21 @@ function ProdutoCard({ bolo, onVerDetalhes, onAdicionar }) {
           {bolo.destaque && (
             <span className="produto-card__badge">⭐ Destaque</span>
           )}
-          {bolo.video && (
-            <span className="produto-card__badge produto-card__badge--video">▶ Vídeo</span>
-          )}
         </div>
       </button>
 
       <div className="produto-card__info">
         <h3 className="produto-card__nome">{bolo.nome}</h3>
         <p className="produto-card__desc">{bolo.descricao}</p>
+
+        {/* Link de detalhes visível abaixo da descrição */}
+        <button
+          type="button"
+          className="produto-card__ver-detalhes"
+          onClick={() => onVerDetalhes(bolo)}
+        >
+          {isEncomenda ? 'Fazer encomenda →' : 'Ver detalhes / Personalizar →'}
+        </button>
 
         <div className="produto-card__rodape">
           {bolo.tamanho && (
@@ -50,15 +56,7 @@ function ProdutoCard({ bolo, onVerDetalhes, onAdicionar }) {
           </span>
         </div>
 
-        {isEncomenda ? (
-          <button
-            className="produto-card__btn produto-card__btn--encomenda"
-            type="button"
-            onClick={() => onVerDetalhes(bolo)}
-          >
-            Fazer encomenda
-          </button>
-        ) : (
+        {!isEncomenda && (
           <button
             className="produto-card__btn"
             type="button"
