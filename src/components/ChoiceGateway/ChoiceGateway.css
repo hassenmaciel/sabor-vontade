@@ -1,5 +1,5 @@
 .choice-gateway {
-  padding: 27px 16px 30px;
+  padding: 16px 16px 24px;
   background: var(--bg-elevated);
 }
 
@@ -128,4 +128,17 @@
 @media (max-width: 390px) {
   .choice-card { height: 270px; }
   .choice-card__copy h3 { font-size: 26px; }
+}
+
+/* Logo no card de bolos */
+.choice-card__logo {
+  position: absolute;
+  z-index: 3;
+  bottom: 58px;
+  left: 10px;
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  border-radius: 50%;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
 }

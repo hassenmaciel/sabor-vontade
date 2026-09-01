@@ -1,5 +1,5 @@
 .hero {
-  min-height: 720px;
+  min-height: 500px;
   position: relative;  /* ponto de referência para todos os filhos absolute */
   background: #080608;
   overflow: hidden;
@@ -139,7 +139,7 @@
 
 /* ── TABLET 640px ── */
 @media (min-width: 640px) {
-  .hero { min-height: 560px; }
+  .hero { min-height: 440px; }
 
   .hero__copy {
     top: 20%;
@@ -157,7 +157,7 @@
 
 /* ── DESKTOP 900px ── */
 @media (min-width: 900px) {
-  .hero { min-height: 660px; }
+  .hero { min-height: 580px; }
 
   .hero__header {
     padding: 28px 8%;

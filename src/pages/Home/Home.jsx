@@ -21,7 +21,6 @@ function Home() {
 
   const handleEscolher = (categoriaId) => {
     escolher(categoriaId)
-    // aguarda o React montar a seção dinâmica antes de rolar até ela
     requestAnimationFrame(() => {
       destaquesRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     })
@@ -29,7 +28,7 @@ function Home() {
 
   return (
     <>
-      <Hero onPedirAgora={irParaEscolha} onVerOpcoes={irParaEscolha} />
+      <Hero onVerOpcoes={irParaEscolha} />
 
       <div ref={escolhaRef}>
         <ChoiceGateway escolhaAtual={escolhaAtual} onEscolher={handleEscolher} />

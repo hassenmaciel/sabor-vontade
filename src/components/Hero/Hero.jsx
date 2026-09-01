@@ -2,11 +2,12 @@ import { Link } from 'react-router-dom'
 import heroImage from '../../assets/images/hero-premium.png'
 import './Hero.css'
 
-function Hero({ onPedirAgora, onVerOpcoes }) {
+const INSTAGRAM = 'https://www.instagram.com/rosilenepereiramaciel1'
+
+function Hero({ onVerOpcoes }) {
   return (
     <section className="hero" id="home">
 
-      {/* Imagem de fundo */}
       <div
         className="hero__bg"
         style={{ backgroundImage: `url(${heroImage})` }}
@@ -14,10 +15,8 @@ function Hero({ onPedirAgora, onVerOpcoes }) {
         aria-label="Bolo de chocolate com morango e açaí"
       />
 
-      {/* Overlay escuro */}
       <div className="hero__overlay" aria-hidden="true" />
 
-      {/* Header — filho direto da section, position:absolute relativo ao .hero */}
       <header className="hero__header">
         <Link to="/" className="hero__brand">
           Sabor &amp;
@@ -29,7 +28,6 @@ function Hero({ onPedirAgora, onVerOpcoes }) {
         </button>
       </header>
 
-      {/* Copy — filho direto da section, position:absolute relativo ao .hero */}
       <div className="hero__copy">
         <p className="hero__eyebrow">Bolos artesanais · Açaí premium</p>
         <h1 className="hero__title">
@@ -40,12 +38,14 @@ function Hero({ onPedirAgora, onVerOpcoes }) {
           transformar sua vontade em momentos inesquecíveis.
         </p>
         <div className="hero__actions">
-          <button className="btn btn--primary" type="button" onClick={onPedirAgora}>
-            Pedir agora
-          </button>
-          <button className="btn btn--ghost" type="button" onClick={onVerOpcoes}>
-            Ver opções
-          </button>
+          <a
+            className="btn btn--primary"
+            href={INSTAGRAM}
+            target="_blank"
+            rel="noreferrer"
+          >
+            📸 Instagram
+          </a>
         </div>
       </div>
 

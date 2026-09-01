@@ -1,6 +1,11 @@
 import { listarCategoriasAtivas } from '../../data/categorias'
 import heroImage from '../../assets/images/hero-premium.png'
+import logoDoceDesejo from '../../assets/images/logo-doce-desejo.png'
 import './ChoiceGateway.css'
+
+const logos = {
+  bolo: logoDoceDesejo,
+}
 
 function ChoiceGateway({ escolhaAtual, onEscolher, id }) {
   const categoriasAtivas = listarCategoriasAtivas()
@@ -25,8 +30,18 @@ function ChoiceGateway({ escolhaAtual, onEscolher, id }) {
             }}
             onClick={() => onEscolher(categoria.id)}
           >
+            {/* Logo no canto inferior esquerdo (apenas para bolos) */}
+            {logos[categoria.id] && (
+              <img
+                src={logos[categoria.id]}
+                alt={categoria.marca}
+                className="choice-card__logo"
+              />
+            )}
+
             <div className="choice-card__copy">
-              <h3>{categoria.nome}</h3>
+              {/* Bolos mostra "Doce & Desejo", açaí mostra o nome normal */}
+              <h3>{categoria.id === 'bolo' ? 'Doce & Desejo' : categoria.nome}</h3>
               <p>{categoria.descricaoCurta}</p>
               <strong>{categoria.cta} →</strong>
             </div>
