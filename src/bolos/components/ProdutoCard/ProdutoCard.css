@@ -18,8 +18,10 @@
 
 .produto-card__foto {
   height: 200px;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
+  background-color: #120a0a;
   position: relative;
 }
 

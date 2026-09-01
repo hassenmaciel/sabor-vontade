@@ -73,8 +73,10 @@
 
 .product-card__foto {
   height: 130px;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
+  background-color: #f5ede8;
 }
 
 /* Info */
@@ -162,7 +164,12 @@
     gap: 16px;
   }
   .product-card { min-width: auto; max-width: none; }
-  .product-card__foto { height: 160px; }
+  .product-card__foto {
+    height: 160px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #f5ede8;
+  }
 }
 
 /* Desktop */
