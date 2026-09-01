@@ -53,7 +53,7 @@ function DynamicHighlights({ escolhaAtual, onAdicionar }) {
 
               {/* Foto */}
               {produto.foto && (
-                <Link to={produto.rota ?? '#'} className="product-card__foto-link">
+                <Link to={produto.rota ?? '#'} className="product-card__foto-link" onClick={() => window.scrollTo({ top: 0 })}>
                   <div
                     className="product-card__foto"
                     style={{ backgroundImage: `url(${produto.foto})` }}
@@ -68,7 +68,7 @@ function DynamicHighlights({ escolhaAtual, onAdicionar }) {
                 <p>{produto.descricao}</p>
 
                 {/* Link de detalhes abaixo da descrição */}
-                <Link to={produto.rota ?? '#'} className="product-card__ver-mais">
+                <Link to={produto.rota ?? '#'} className="product-card__ver-mais" onClick={() => window.scrollTo({ top: 0 })}>
                   Ver detalhes →
                 </Link>
 
