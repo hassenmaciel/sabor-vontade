@@ -46,7 +46,7 @@
   background: linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.12) 35%, rgba(8,4,7,.92) 100%);
 }
 
-.choice-card--bolo { background-position: 28% 78%; }
+.choice-card--bolo { background-position: 0% 20%; background-size: cover; }
 .choice-card--acai { background-position: 80% 25%; }
 .choice-card--doces { background-position: 50% 50%; }
 
@@ -130,15 +130,4 @@
   .choice-card__copy h3 { font-size: 26px; }
 }
 
-/* Logo no card de bolos */
-.choice-card__logo {
-  position: absolute;
-  z-index: 3;
-  bottom: 58px;
-  left: 10px;
-  width: 72px;
-  height: 72px;
-  object-fit: contain;
-  border-radius: 50%;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
-}
+

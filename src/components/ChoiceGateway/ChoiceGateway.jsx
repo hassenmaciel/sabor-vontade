@@ -1,10 +1,11 @@
 import { listarCategoriasAtivas } from '../../data/categorias'
 import heroImage from '../../assets/images/hero-premium.png'
-import logoDoceDesejo from '../../assets/images/logo-doce-desejo.png'
+import cardBolosImage from '../../assets/images/card-bolos.png'
 import './ChoiceGateway.css'
 
-const logos = {
-  bolo: logoDoceDesejo,
+// Imagem específica por categoria — bolos usa a arte com logo embutida
+const imagensPorCategoria = {
+  bolo: cardBolosImage,
 }
 
 function ChoiceGateway({ escolhaAtual, onEscolher, id }) {
@@ -18,35 +19,28 @@ function ChoiceGateway({ escolhaAtual, onEscolher, id }) {
       <p className="choice-gateway__subtitle">Hoje é dia de bolo ou de açaí?</p>
 
       <div className="choice-gateway__grid">
-        {categoriasAtivas.map((categoria) => (
-          <button
-            key={categoria.id}
-            type="button"
-            className={`choice-card choice-card--${categoria.id}`}
-            aria-pressed={escolhaAtual === categoria.id}
-            style={{
-              backgroundImage: `url(${heroImage})`,
-              '--card-gradient': `linear-gradient(135deg, ${categoria.corPrimaria}, ${categoria.corSecundaria})`,
-            }}
-            onClick={() => onEscolher(categoria.id)}
-          >
-            {/* Logo no canto inferior esquerdo (apenas para bolos) */}
-            {logos[categoria.id] && (
-              <img
-                src={logos[categoria.id]}
-                alt={categoria.marca}
-                className="choice-card__logo"
-              />
-            )}
-
-            <div className="choice-card__copy">
-              {/* Bolos mostra "Doce & Desejo", açaí mostra o nome normal */}
-              <h3>{categoria.id === 'bolo' ? 'Doce & Desejo' : categoria.nome}</h3>
-              <p>{categoria.descricaoCurta}</p>
-              <strong>{categoria.cta} →</strong>
-            </div>
-          </button>
-        ))}
+        {categoriasAtivas.map((categoria) => {
+          const imagem = imagensPorCategoria[categoria.id] ?? heroImage
+          return (
+            <button
+              key={categoria.id}
+              type="button"
+              className={`choice-card choice-card--${categoria.id}`}
+              aria-pressed={escolhaAtual === categoria.id}
+              style={{
+                backgroundImage: `url(${imagem})`,
+                '--card-gradient': `linear-gradient(135deg, ${categoria.corPrimaria}, ${categoria.corSecundaria})`,
+              }}
+              onClick={() => onEscolher(categoria.id)}
+            >
+              <div className="choice-card__copy">
+                <h3>{categoria.id === 'bolo' ? 'Doce & Desejo' : categoria.nome}</h3>
+                <p>{categoria.descricaoCurta}</p>
+                <strong>{categoria.cta} →</strong>
+              </div>
+            </button>
+          )
+        })}
       </div>
     </section>
   )
