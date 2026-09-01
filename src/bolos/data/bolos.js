@@ -5,6 +5,14 @@ import boloPacoca4 from '../../assets/images/pacoca-4.jpg'
 import bombom1 from '../../assets/images/bombom-amendoim-1.png'
 import bombom2 from '../../assets/images/bombom-amendoim-2.png'
 import bombom3 from '../../assets/images/bombom-amendoim-3.png'
+import brigadeiro1 from '../../assets/images/brigadeiro-1.jpg'
+import brigadeiro2 from '../../assets/images/brigadeiro-2.jpg'
+import brigadeiro3 from '../../assets/images/brigadeiro-3.jpg'
+import brigadeiro4 from '../../assets/images/brigadeiro-4.jpg'
+import rocambole1 from '../../assets/images/rocambole-1.jpg'
+import rocambole2 from '../../assets/images/rocambole-2.jpg'
+import rocambole3 from '../../assets/images/rocambole-3.jpg'
+import rocambole4 from '../../assets/images/rocambole-4.jpg'
 
 export const WHATSAPP_BOLOS = '5599984195290'
 
@@ -43,11 +51,11 @@ export const bolos = [
   {
     id: 'bolo-brigadeiro',
     nome: 'Bolo de Brigadeiro',
-    descricao: 'Massa de chocolate com recheio e cobertura de brigadeiro cremoso. Clássico que nunca decepciona.',
+    descricao: 'Massa úmida de chocolate coberta com brigadeiro cremoso, granulado e brigadeiros artesanais por cima. Pura indulgência.',
     preco: 35.00,
     tamanho: 'M',
     categorias: ['bolo-inteiro'],
-    fotos: ['https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=600&q=80'],
+    fotos: [brigadeiro1, brigadeiro2, brigadeiro3, brigadeiro4],
     disponivel: true,
     destaque: false,
     video: null,
@@ -60,6 +68,18 @@ export const bolos = [
     tamanho: 'M',
     categorias: ['bolo-inteiro'],
     fotos: ['https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80'],
+    disponivel: true,
+    destaque: false,
+    video: null,
+  },
+  {
+    id: 'rocambole-maracuja',
+    nome: 'Rocambole de Maracujá',
+    descricao: 'Massa leve e aerada recheada com creme suave de maracujá, coberta com calda concentrada de maracujá com sementes. Refrescante e irresistível.',
+    preco: 35.00,
+    tamanho: 'G',
+    categorias: ['bolo-inteiro', 'especial-do-dia'],
+    fotos: [rocambole1, rocambole2, rocambole3, rocambole4],
     disponivel: true,
     destaque: false,
     video: null,

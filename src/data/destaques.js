@@ -1,5 +1,6 @@
 import boloPacoca1 from '../assets/images/pacoca-1.jpg'
 import bombom1 from '../assets/images/bombom-amendoim-1.png'
+import brigadeiro1 from '../assets/images/brigadeiro-1.jpg'
 
 export const destaquesPorCategoria = {
   bolo: [
@@ -20,11 +21,11 @@ export const destaquesPorCategoria = {
       rota: '/bolos',
     },
     {
-      id: 'bolo-chocolate',
-      nome: 'Bolo de Chocolate',
-      descricao: 'Massa rica em cacau com ganache.',
+      id: 'bolo-brigadeiro',
+      nome: 'Bolo de Brigadeiro',
+      descricao: 'Brigadeiro cremoso, granulado e brigadeiros artesanais.',
       preco: 35.00,
-      foto: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80',
+      foto: brigadeiro1,
       rota: '/bolos',
     },
   ],
