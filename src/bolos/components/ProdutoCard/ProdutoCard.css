@@ -1,0 +1,112 @@
+.produto-card {
+  background: #1a0c10;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.produto-card__foto-btn {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+}
+
+.produto-card__foto {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.produto-card__badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(239,63,104,0.9);
+  color: white;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 8px;
+  border-radius: 20px;
+}
+
+.produto-card__badge--video {
+  left: auto;
+  right: 10px;
+  background: rgba(0,0,0,0.7);
+}
+
+.produto-card__info {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.produto-card__nome {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 6px;
+  color: var(--text-on-dark);
+}
+
+.produto-card__desc {
+  font-size: 11px;
+  line-height: 1.55;
+  color: var(--text-on-dark-muted);
+  margin: 0 0 12px;
+  flex: 1;
+}
+
+.produto-card__rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.produto-card__tamanho {
+  font-size: 10px;
+  color: #bfb3b7;
+  background: rgba(255,255,255,0.06);
+  padding: 3px 8px;
+  border-radius: 20px;
+}
+
+.produto-card__preco {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--pink-2);
+}
+
+.produto-card__btn {
+  width: 100%;
+  padding: 12px;
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #d62f5b, #f14b71);
+  color: white;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.produto-card__btn--encomenda {
+  background: linear-gradient(135deg, #3b1a0d, #6b2f18);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+@media (min-width: 640px) {
+  .produto-card__foto { height: 240px; }
+  .produto-card__nome { font-size: 20px; }
+  .produto-card__desc { font-size: 12px; }
+}

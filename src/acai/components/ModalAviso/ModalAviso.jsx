@@ -1,0 +1,65 @@
+import { useEffect } from 'react'
+import './ModalAviso.css'
+
+function ModalAviso({ aberto, titulo, icone, children, onFechar, acaoPrimaria, acaoSecundaria }) {
+  useEffect(() => {
+    if (!aberto) return undefined
+
+    function handleKeyDown(event) {
+      if (event.key === 'Escape' && onFechar) onFechar()
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+      document.body.style.overflow = ''
+    }
+  }, [aberto, onFechar])
+
+  if (!aberto) return null
+
+  function acionarComDesbloqueio(callback) {
+    document.body.style.overflow = ''
+    callback?.()
+  }
+
+  return (
+    <div className="modal-aviso__overlay" onClick={onFechar}>
+      <div
+        className="modal-aviso__card"
+        role="alertdialog"
+        aria-modal="true"
+        aria-labelledby="modal-aviso-titulo"
+        onClick={(event) => event.stopPropagation()}
+      >
+        {icone && <span className="modal-aviso__icone" aria-hidden="true">{icone}</span>}
+        <h2 id="modal-aviso-titulo" className="modal-aviso__title">{titulo}</h2>
+        {children && <div className="modal-aviso__texto">{children}</div>}
+        <div className="modal-aviso__acoes">
+          {acaoSecundaria && (
+            <button
+              type="button"
+              className="modal-aviso__botao modal-aviso__botao--secundario"
+              onClick={() => acionarComDesbloqueio(acaoSecundaria.onClick)}
+            >
+              {acaoSecundaria.label}
+            </button>
+          )}
+          {acaoPrimaria && (
+            <button
+              type="button"
+              className="modal-aviso__botao modal-aviso__botao--primario"
+              onClick={() => acionarComDesbloqueio(acaoPrimaria.onClick)}
+            >
+              {acaoPrimaria.label}
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default ModalAviso

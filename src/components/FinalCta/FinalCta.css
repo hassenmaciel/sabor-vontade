@@ -1,0 +1,48 @@
+.final-cta {
+  padding: 35px 20px 110px;
+  text-align: center;
+  background: linear-gradient(135deg, #73132f, #b9204a);
+}
+
+.final-cta h2 {
+  font: 31px var(--font-display);
+  margin: 0 0 8px;
+}
+
+.final-cta p {
+  font-size: 11px;
+  color: #ffe3ea;
+  margin: 0 0 18px;
+}
+
+.final-cta__whats {
+  width: 100%;
+  border: 0;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  background: #22c766;
+  color: white;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+@media (min-width: 640px) {
+  .final-cta {
+    padding: 60px 40px 80px;
+  }
+  .final-cta h2 { font-size: 44px; }
+  .final-cta p { font-size: 14px; margin-bottom: 28px; }
+  .final-cta__whats {
+    max-width: 400px;
+    margin: 0 auto;
+    display: block;
+    font-size: 14px;
+    padding: 18px;
+  }
+}
+
+@media (min-width: 900px) {
+  .final-cta {
+    padding: 80px 8%;
+  }
+}

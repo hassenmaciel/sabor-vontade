@@ -1,0 +1,131 @@
+.choice-gateway {
+  padding: 27px 16px 30px;
+  background: var(--bg-elevated);
+}
+
+.choice-gateway__title {
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: 1.1px;
+  margin: 0;
+}
+
+.choice-gateway__title span { color: var(--pink-2); }
+
+.choice-gateway__subtitle {
+  text-align: center;
+  color: #bfb3b7;
+  font-size: 11px;
+  margin: 7px 0 20px;
+}
+
+.choice-gateway__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 11px;
+}
+
+.choice-card {
+  height: 300px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+  padding: 15px;
+  color: var(--text-on-dark);
+  background-color: #160b10;
+  background-size: 330% auto;
+  background-repeat: no-repeat;
+}
+
+.choice-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.12) 35%, rgba(8,4,7,.92) 100%);
+}
+
+.choice-card--bolo { background-position: 28% 78%; }
+.choice-card--acai { background-position: 80% 25%; }
+.choice-card--doces { background-position: 50% 50%; }
+
+.choice-card__copy {
+  position: absolute;
+  z-index: 2;
+  left: 16px;
+  right: 14px;
+  bottom: 15px;
+}
+
+.choice-card__copy h3 {
+  font: 31px var(--font-display);
+  margin: 0 0 7px;
+}
+
+.choice-card__copy p {
+  font-size: 10px;
+  line-height: 1.45;
+  color: #ddd;
+  margin: 0 0 13px;
+}
+
+.choice-card__copy strong {
+  display: block;
+  padding: 11px 10px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  font-size: 10px;
+  text-transform: uppercase;
+  background: var(--card-gradient);
+}
+
+/* Tablet */
+@media (min-width: 640px) {
+  .choice-gateway {
+    padding: 40px 32px 44px;
+  }
+  .choice-gateway__title {
+    font-size: 26px;
+  }
+  .choice-gateway__subtitle {
+    font-size: 13px;
+    margin-bottom: 28px;
+  }
+  .choice-card {
+    height: 360px;
+  }
+  .choice-card__copy h3 {
+    font-size: 36px;
+  }
+  .choice-card__copy p {
+    font-size: 12px;
+  }
+  .choice-card__copy strong {
+    font-size: 12px;
+    padding: 13px 12px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+  .choice-gateway {
+    padding: 60px 8% 64px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .choice-gateway__title {
+    font-size: 32px;
+  }
+  .choice-card {
+    height: 420px;
+  }
+  .choice-card__copy h3 {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 390px) {
+  .choice-card { height: 270px; }
+  .choice-card__copy h3 { font-size: 26px; }
+}

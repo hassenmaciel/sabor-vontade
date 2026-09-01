@@ -1,0 +1,170 @@
+.carrinho-bolos {
+  min-height: 100vh;
+  background: var(--bg-elevated);
+  padding: 0 0 120px;
+}
+
+.carrinho-bolos__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 20px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  position: sticky;
+  top: 0;
+  background: var(--bg-elevated);
+  z-index: 5;
+}
+
+.carrinho-bolos__header h1 {
+  flex: 1;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.carrinho-bolos__voltar {
+  border: 1px solid rgba(255,255,255,0.15);
+  background: transparent;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.carrinho-bolos__limpar {
+  border: 0;
+  background: transparent;
+  color: #9a7070;
+  font-size: 11px;
+  text-decoration: underline;
+}
+
+.carrinho-bolos__vazio {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.carrinho-bolos__vazio p {
+  color: var(--text-on-dark-muted);
+  margin: 0 0 20px;
+}
+
+.carrinho-bolos__cta {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #d62f5b, #f14b71);
+  color: white;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.carrinho-bolos__lista {
+  list-style: none;
+  margin: 0;
+  padding: 16px 20px;
+  display: grid;
+  gap: 12px;
+}
+
+.carrinho-bolos__item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.carrinho-bolos__item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.carrinho-bolos__item-info b {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.carrinho-bolos__obs {
+  display: block;
+  font-size: 10px;
+  color: #9a8080;
+  margin-bottom: 4px;
+}
+
+.carrinho-bolos__item-preco {
+  font-size: 15px;
+  font-weight: 900;
+  color: var(--pink-2);
+}
+
+.carrinho-bolos__controles {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carrinho-bolos__controles button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: transparent;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.carrinho-bolos__controles span {
+  font-size: 15px;
+  font-weight: 700;
+  min-width: 20px;
+  text-align: center;
+}
+
+.carrinho-bolos__remover {
+  color: #9a6060 !important;
+  font-size: 20px !important;
+  border-color: rgba(154,96,96,0.3) !important;
+}
+
+.carrinho-bolos__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 14px;
+  color: var(--text-on-dark-muted);
+}
+
+.carrinho-bolos__total strong {
+  font-size: 22px;
+  color: var(--pink-2);
+}
+
+.carrinho-bolos__aviso {
+  margin: 0;
+  padding: 0 20px 16px;
+  font-size: 11px;
+  color: #c9a96e;
+}
+
+.carrinho-bolos__finalizar {
+  display: block;
+  width: calc(100% - 40px);
+  margin: 0 20px;
+  padding: 18px;
+  border: 0;
+  border-radius: 14px;
+  background: #22c766;
+  color: white;
+  font-size: 14px;
+  font-weight: 900;
+}

@@ -1,0 +1,37 @@
+.about {
+  padding: 34px 20px;
+  background: linear-gradient(135deg, #1b0913, #0c060c);
+}
+
+.about h2 {
+  font: 32px var(--font-display);
+  margin: 0 0 10px;
+}
+
+.about h2 span { color: var(--pink); }
+
+.about p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--text-on-dark-muted);
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .about {
+    padding: 56px 40px;
+  }
+  .about h2 { font-size: 44px; }
+  .about p { font-size: 15px; max-width: 560px; }
+}
+
+@media (min-width: 900px) {
+  .about {
+    padding: 72px 8%;
+  }
+  .about-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .about h2 { font-size: 52px; }
+}

@@ -1,0 +1,40 @@
+.header {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 7.5%;
+}
+
+.header__brand {
+  font: 700 22px/18px var(--font-display);
+  color: var(--text-on-dark);
+}
+
+.header__brand span {
+  display: block;
+  color: var(--pink);
+}
+
+.header__brand small {
+  display: block;
+  font: 700 7px var(--font-body);
+  letter-spacing: 1.5px;
+  margin-top: 7px;
+  color: #ddd;
+}
+
+.header__menu {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 119, 146, 0.27);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-on-dark);
+  border-radius: 12px;
+  font-size: 20px;
+}
