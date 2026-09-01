@@ -1,16 +1,9 @@
-import boloPacocaImg from '../../../assets/images/bolo-pacoca.png'
 import './ProdutoCard.css'
 
-const fotosLocais = {
-  'bolo-pacoca': boloPacocaImg,
-}
-
 function ProdutoCard({ bolo, onVerDetalhes, onAdicionar }) {
-  const foto = bolo.fotoLocal
-    ? fotosLocais[bolo.fotoLocal]
-    : bolo.fotoUrl
-
+  const foto = Array.isArray(bolo.fotos) ? bolo.fotos[0] : bolo.fotoUrl
   const isEncomenda = bolo.categorias.includes('encomenda')
+  const totalFotos = bolo.fotos?.length ?? 0
 
   return (
     <article className="produto-card">
@@ -26,8 +19,11 @@ function ProdutoCard({ bolo, onVerDetalhes, onAdicionar }) {
           role="img"
           aria-label={bolo.nome}
         >
-          {bolo.destaque && (
-            <span className="produto-card__badge">⭐ Destaque</span>
+          {bolo.destaque && <span className="produto-card__badge">⭐ Destaque</span>}
+          {totalFotos > 1 && (
+            <span className="produto-card__badge produto-card__badge--fotos">
+              📷 {totalFotos} fotos
+            </span>
           )}
         </div>
       </button>
@@ -36,7 +32,6 @@ function ProdutoCard({ bolo, onVerDetalhes, onAdicionar }) {
         <h3 className="produto-card__nome">{bolo.nome}</h3>
         <p className="produto-card__desc">{bolo.descricao}</p>
 
-        {/* Link de detalhes visível abaixo da descrição */}
         <button
           type="button"
           className="produto-card__ver-detalhes"

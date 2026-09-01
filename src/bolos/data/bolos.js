@@ -1,6 +1,10 @@
-// Catálogo real — Sabor & Vontade / Doce & Desejo
-// Fotos: temporariamente usando URLs do Unsplash (substituir pelas reais)
-// Instagram: https://www.instagram.com/rosilenepereiramaciel1
+import boloPacoca1 from '../../assets/images/pacoca-1.jpg'
+import boloPacoca2 from '../../assets/images/pacoca-2.jpg'
+import boloPacoca3 from '../../assets/images/pacoca-3.jpg'
+import boloPacoca4 from '../../assets/images/pacoca-4.jpg'
+import bombom1 from '../../assets/images/bombom-amendoim-1.png'
+import bombom2 from '../../assets/images/bombom-amendoim-2.png'
+import bombom3 from '../../assets/images/bombom-amendoim-3.png'
 
 export const WHATSAPP_BOLOS = '5599984195290'
 
@@ -19,21 +23,19 @@ export const bolos = [
     preco: 35.00,
     tamanho: 'M',
     categorias: ['bolo-inteiro', 'especial-do-dia'],
-    // Foto real enviada pelo cliente
-    foto: null, // será importada via import estático abaixo
-    fotoLocal: 'bolo-pacoca',
+    fotos: [boloPacoca1, boloPacoca2, boloPacoca3, boloPacoca4],
     disponivel: true,
     destaque: true,
     video: null,
   },
   {
-    id: 'bolo-amendoim',
-    nome: 'Bolo de Amendoim',
-    descricao: 'Bolo úmido de amendoim com cobertura cremosa e amendoim granulado. Sabor que conquista.',
+    id: 'bolo-bombom-amendoim',
+    nome: 'Bolo de Bombom de Amendoim',
+    descricao: 'Massa de chocolate com recheio cremoso de amendoim, cobertura de ganache e bombom de amendoim. Uma explosão de sabor.',
     preco: 35.00,
     tamanho: 'M',
     categorias: ['bolo-inteiro'],
-    fotoUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
+    fotos: [bombom1, bombom2, bombom3],
     disponivel: true,
     destaque: false,
     video: null,
@@ -45,7 +47,7 @@ export const bolos = [
     preco: 35.00,
     tamanho: 'M',
     categorias: ['bolo-inteiro'],
-    fotoUrl: 'https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=600&q=80',
+    fotos: ['https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=600&q=80'],
     disponivel: true,
     destaque: false,
     video: null,
@@ -57,7 +59,7 @@ export const bolos = [
     preco: 35.00,
     tamanho: 'M',
     categorias: ['bolo-inteiro'],
-    fotoUrl: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80',
+    fotos: ['https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80'],
     disponivel: true,
     destaque: false,
     video: null,
@@ -69,7 +71,7 @@ export const bolos = [
     preco: null,
     tamanho: null,
     categorias: ['encomenda'],
-    fotoUrl: 'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=600&q=80',
+    fotos: ['https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=600&q=80'],
     disponivel: true,
     destaque: false,
     infoExtra: 'Prazo mínimo: 1 dia. Confirme disponibilidade pelo WhatsApp.',

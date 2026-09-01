@@ -99,7 +99,11 @@ function DynamicHighlights({ escolhaAtual, onAdicionar }) {
         </p>
       )}
 
-      <Link to={texto.link ?? categoria.rota} className="dynamic-highlights__link">
+      <Link
+        to={texto.link ?? categoria.rota}
+        className="dynamic-highlights__link"
+        onClick={() => window.scrollTo({ top: 0 })}
+      >
         {texto.linkTexto}
       </Link>
     </section>

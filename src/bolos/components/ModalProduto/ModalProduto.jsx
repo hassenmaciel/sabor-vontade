@@ -1,13 +1,9 @@
 import { useEffect, useState } from 'react'
-import boloPacocaImg from '../../../assets/images/bolo-pacoca.png'
 import { getLinkEncomenda } from '../../services/whatsappBolos'
 import './ModalProduto.css'
 
-const fotosLocais = {
-  'bolo-pacoca': boloPacocaImg,
-}
-
 function ModalProduto({ bolo, onFechar, onAdicionar }) {
+  const [fotoAtual, setFotoAtual] = useState(0)
   const [obs, setObs] = useState('')
 
   useEffect(() => {
@@ -15,10 +11,16 @@ function ModalProduto({ bolo, onFechar, onAdicionar }) {
     return () => { document.body.style.overflow = '' }
   }, [])
 
+  useEffect(() => { setFotoAtual(0) }, [bolo])
+
   if (!bolo) return null
 
-  const foto = bolo.fotoLocal ? fotosLocais[bolo.fotoLocal] : bolo.fotoUrl
+  const fotos = Array.isArray(bolo.fotos) ? bolo.fotos : [bolo.fotoUrl]
   const isEncomenda = bolo.categorias.includes('encomenda')
+
+  const irFoto = (idx) => {
+    setFotoAtual((idx + fotos.length) % fotos.length)
+  }
 
   const handleAdicionar = () => {
     onAdicionar(bolo, obs)
@@ -34,36 +36,73 @@ function ModalProduto({ bolo, onFechar, onAdicionar }) {
         aria-modal="true"
         aria-label={bolo.nome}
       >
-        <button className="modal-produto__fechar" type="button" onClick={onFechar} aria-label="Fechar">
-          ×
-        </button>
+        <button className="modal-produto__fechar" type="button" onClick={onFechar} aria-label="Fechar">×</button>
 
-        {/* Foto */}
-        <div
-          className="modal-produto__foto"
-          style={{ backgroundImage: `url(${foto})` }}
-          role="img"
-          aria-label={bolo.nome}
-        />
+        {/* Galeria de fotos */}
+        <div className="modal-produto__galeria">
+          <div
+            className="modal-produto__foto"
+            style={{ backgroundImage: `url(${fotos[fotoAtual]})` }}
+            role="img"
+            aria-label={`${bolo.nome} — foto ${fotoAtual + 1} de ${fotos.length}`}
+          />
 
-        {/* Vídeo do Instagram */}
+          {fotos.length > 1 && (
+            <>
+              <button
+                type="button"
+                className="modal-produto__nav modal-produto__nav--prev"
+                onClick={() => irFoto(fotoAtual - 1)}
+                aria-label="Foto anterior"
+              >‹</button>
+              <button
+                type="button"
+                className="modal-produto__nav modal-produto__nav--next"
+                onClick={() => irFoto(fotoAtual + 1)}
+                aria-label="Próxima foto"
+              >›</button>
+
+              {/* Dots */}
+              <div className="modal-produto__dots">
+                {fotos.map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    className={`modal-produto__dot ${i === fotoAtual ? 'modal-produto__dot--ativo' : ''}`}
+                    onClick={() => setFotoAtual(i)}
+                    aria-label={`Foto ${i + 1}`}
+                  />
+                ))}
+              </div>
+
+              {/* Miniaturas */}
+              <div className="modal-produto__thumbs">
+                {fotos.map((foto, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    className={`modal-produto__thumb ${i === fotoAtual ? 'modal-produto__thumb--ativo' : ''}`}
+                    style={{ backgroundImage: `url(${foto})` }}
+                    onClick={() => setFotoAtual(i)}
+                    aria-label={`Foto ${i + 1}`}
+                  />
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+
+        {/* Link vídeo Instagram */}
         {bolo.video && (
           <div className="modal-produto__video-wrap">
-            <a
-              href={bolo.video}
-              target="_blank"
-              rel="noreferrer"
-              className="modal-produto__video-link"
-            >
+            <a href={bolo.video} target="_blank" rel="noreferrer" className="modal-produto__video-link">
               ▶ Ver vídeo no Instagram
             </a>
           </div>
         )}
 
         <div className="modal-produto__body">
-          {bolo.destaque && (
-            <span className="modal-produto__badge">⭐ Destaque</span>
-          )}
+          {bolo.destaque && <span className="modal-produto__badge">⭐ Destaque</span>}
 
           <h2 className="modal-produto__nome">{bolo.nome}</h2>
           <p className="modal-produto__desc">{bolo.descricao}</p>
@@ -110,11 +149,7 @@ function ModalProduto({ bolo, onFechar, onAdicionar }) {
               💬 Fazer encomenda pelo WhatsApp
             </a>
           ) : (
-            <button
-              className="modal-produto__btn"
-              type="button"
-              onClick={handleAdicionar}
-            >
+            <button className="modal-produto__btn" type="button" onClick={handleAdicionar}>
               + Adicionar ao pedido
             </button>
           )}
